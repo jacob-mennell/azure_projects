@@ -1,0 +1,9 @@
+{
+	"name": "jmadfproject1",
+	"location": "uksouth",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2d84ebdf-f4b6-45e8-9432-b262619aa95f",
+		"tenantId": "f181b179-ec18-4e50-8c2d-f31fa47b8e5a"
+	}
+}
