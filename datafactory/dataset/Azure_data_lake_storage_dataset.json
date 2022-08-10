@@ -1,0 +1,27 @@
+{
+	"name": "Azure_data_lake_storage_dataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azure_data_lake_linked_service",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"landingFolder": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@dataset().landingFolder",
+					"type": "Expression"
+				},
+				"fileSystem": "input"
+			}
+		},
+		"schema": {}
+	}
+}
