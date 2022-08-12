@@ -1,0 +1,16 @@
+{
+	"name": "Azure_sql_table",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SMAERS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "vehicleData1"
+		}
+	}
+}
