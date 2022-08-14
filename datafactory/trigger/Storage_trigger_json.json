@@ -13,7 +13,7 @@
 		],
 		"type": "BlobEventsTrigger",
 		"typeProperties": {
-			"blobPathBeginsWith": "/input/blobs/landing/",
+			"blobPathBeginsWith": "/input/blobs/landing/2022/08/14",
 			"ignoreEmptyBlobs": true,
 			"scope": "/subscriptions/347cd6fe-eda2-47b8-be7e-7fde3c13370e/resourceGroups/project1/providers/Microsoft.Storage/storageAccounts/jmazurestorage",
 			"events": [
