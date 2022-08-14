@@ -1,0 +1,91 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "jmadfproject1"
+		},
+		"SMAERS_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'SMAERS'"
+		},
+		"azure_data_lake_linked_service_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'azure_data_lake_linked_service'"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://jmproject1.vault.azure.net/"
+		},
+		"S3_LINK_properties_typeProperties_accessKeyId": {
+			"type": "object",
+			"defaultValue": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3accesskeyid"
+			}
+		},
+		"azure_data_lake_linked_service_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://jmazurestorage.dfs.core.windows.net/"
+		},
+		"Storage_trigger_json_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/347cd6fe-eda2-47b8-be7e-7fde3c13370e/resourceGroups/project1/providers/Microsoft.Storage/storageAccounts/jmazurestorage"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "jmadfproject1_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"SMAERS_connectionString": {
+						"value": "[parameters('SMAERS_connectionString')]"
+					},
+					"azure_data_lake_linked_service_accountKey": {
+						"value": "[parameters('azure_data_lake_linked_service_accountKey')]"
+					},
+					"AzureKeyVault1_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault1_properties_typeProperties_baseUrl')]"
+					},
+					"azure_data_lake_linked_service_properties_typeProperties_url": {
+						"value": "[parameters('azure_data_lake_linked_service_properties_typeProperties_url')]"
+					},
+					"S3_LINK_properties_typeProperties_accessKeyId": {
+						"value": "[parameters('S3_LINK_properties_typeProperties_accessKeyId')]"
+					},
+					"Storage_trigger_json_properties_typeProperties_scope": {
+						"value": "[parameters('Storage_trigger_json_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

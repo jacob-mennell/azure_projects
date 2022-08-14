@@ -1,0 +1,40 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "jmadfproject1"
+		},
+		"SMAERS_connectionString": {
+			"value": ""
+		},
+		"azure_data_lake_linked_service_accountKey": {
+			"value": ""
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://jmproject1.vault.azure.net/"
+		},
+		"S3_LINK_properties_typeProperties_accessKeyId": {
+			"value": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "s3accesskeyid"
+			}
+		},
+		"azure_data_lake_linked_service_properties_typeProperties_url": {
+			"value": "https://jmazurestorage.dfs.core.windows.net/"
+		},
+		"Storage_trigger_json_properties_typeProperties_scope": {
+			"value": "/subscriptions/347cd6fe-eda2-47b8-be7e-7fde3c13370e/resourceGroups/project1/providers/Microsoft.Storage/storageAccounts/jmazurestorage"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
