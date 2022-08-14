@@ -263,7 +263,8 @@
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"recursive": true,
-									"wildcardFileName": "json",
+									"modifiedDatetimeEnd": "2022-08-14T00:00:00.627Z",
+									"wildcardFileName": "*.json",
 									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
@@ -444,7 +445,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
